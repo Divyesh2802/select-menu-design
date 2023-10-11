@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Select Menu Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  </head>
+  <body>
+    <div class="hero">
+      <div class="selector">
+        <div id="select-field">
+          <p id="select-text">Select Social Media</p>
+          <img src="images/arrow.png" alt="" id="icon">
+        </div>
+
+        <span id="msg" class="hide"></span>
+
+        <ul id="list" class="hide">
+          <li class="options">
+            <img src="images/facebook.png" alt="">
+            <p>Facebook</p>
+          </li>
+          <li class="options">
+            <img src="images/youtube.png" alt="">
+            <p>YouTube</p>
+          </li>
+          <li class="options">
+            <img src="images/instagram.png" alt="">
+            <p>Instagram</p>
+          </li>
+          <li class="options">
+            <img src="images/twitter.png" alt="">
+            <p>Twitter</p>
+          </li>
+          <li class="options">
+            <img src="images/pinterest.png" alt="">
+            <p>Pinterest</p>
+          </li>
+          <li class="options">
+            <img src="images/whatsapp.png" alt="">
+            <p>WhatsApp</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var selectField = document.getElementById('select-field');
+      var selectText = document.getElementById('select-text');
+      var options = document.getElementsByClassName('options');
+      var list = document.getElementById('list');
+      var icon = document.getElementById('icon');
+      var msg = document.getElementById('msg');
+
+      selectField.onclick = function () {
+        list.classList.toggle('hide');
+        icon.classList.toggle('rotate');
+      }
+
+      for (option of options) {
+        option.onclick = function () {
+          selectText.innerHTML = this.textContent;
+          list.classList.toggle('hide');
+          icon.classList.toggle('rotate');
+          msg.classList.remove('hide');
+          msg.innerHTML = this.textContent + ' is selected.';
+        }
+      }
+    </script>
+  </body>
+</html>
